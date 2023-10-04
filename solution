@@ -1,0 +1,18 @@
+class Solution:
+    def minValue(self, a, b, n):
+        res = 0
+        if sum(a) >= sum(b):
+            while a and b:
+                max_num = max(a)  # Get the maximum value from a
+                min_num = min(b)  # Get the minimum value from b
+                res += (max_num * min_num)
+                a.remove(max_num)  # Remove the maximum value from a
+                b.remove(min_num)
+        else:
+            while a and b:
+                max_num = max(b)  # Get the maximum value from b
+                min_num = min(a)  # Get the minimum value from a
+                res += (max_num * min_num)
+                b.remove(max_num)  # Remove the maximum value from b
+                a.remove(min_num)
+        return res
